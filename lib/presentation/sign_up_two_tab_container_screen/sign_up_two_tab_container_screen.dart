@@ -22,7 +22,7 @@ class SignUpTwoTabContainerScreen
           width: double.maxFinite,
           child: Column(
             children: [
-              _buildBackgroundStack(),
+              _buildBackground(),
               SizedBox(
                 height: 728.v,
                 child: TabBarView(
@@ -41,7 +41,7 @@ class SignUpTwoTabContainerScreen
   }
 
   /// Section Widget
-  Widget _buildBackgroundStack() {
+  Widget _buildBackground() {
     return SizedBox(
       height: 384.v,
       width: double.maxFinite,
