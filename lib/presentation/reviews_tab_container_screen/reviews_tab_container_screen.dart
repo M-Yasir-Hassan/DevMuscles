@@ -1,0 +1,11 @@
+import 'controller/reviews_tab_container_controller.dart';import 'package:flutter/material.dart';import 'package:yasir_s_application3/core/app_export.dart';import 'package:yasir_s_application3/presentation/reviews_page/reviews_page.dart';import 'package:yasir_s_application3/widgets/app_bar/appbar_leading_image.dart';import 'package:yasir_s_application3/widgets/app_bar/appbar_title.dart';import 'package:yasir_s_application3/widgets/app_bar/custom_app_bar.dart';class ReviewsTabContainerScreen extends GetWidget<ReviewsTabContainerController> {const ReviewsTabContainerScreen({Key? key}) : super(key: key);
+
+@override Widget build(BuildContext context) { mediaQueryData = MediaQuery.of(context); return SafeArea(child: Scaffold(appBar: _buildAppBar(), body: SizedBox(width: double.maxFinite, child: Column(children: [SizedBox(height: 12.v), _buildTabview(), Expanded(child: SizedBox(height: 672.v, child: TabBarView(controller: controller.tabviewController, children: [ReviewsPage(), ReviewsPage(), ReviewsPage()])))])))); } 
+/// Section Widget
+PreferredSizeWidget _buildAppBar() { return CustomAppBar(leadingWidth: 56.h, leading: AppbarLeadingImage(imagePath: ImageConstant.imgArrowLeftOnprimary, margin: EdgeInsets.only(left: 24.h, top: 12.v, bottom: 12.v), onTap: () {onTapArrowLeft();}), centerTitle: true, title: AppbarTitle(text: "lbl_reviews".tr)); } 
+/// Section Widget
+Widget _buildTabview() { return Container(height: 28.v, width: 327.h, decoration: BoxDecoration(color: theme.colorScheme.onPrimary, borderRadius: BorderRadius.circular(14.h)), child: TabBar(controller: controller.tabviewController, labelPadding: EdgeInsets.zero, labelColor: theme.colorScheme.onError.withOpacity(1), labelStyle: TextStyle(fontSize: 13.fSize, fontFamily: 'Open Sans', fontWeight: FontWeight.w400), unselectedLabelColor: appTheme.whiteA700, unselectedLabelStyle: TextStyle(fontSize: 13.fSize, fontFamily: 'Open Sans', fontWeight: FontWeight.w400), indicator: BoxDecoration(color: theme.colorScheme.primary, borderRadius: BorderRadius.circular(14.h)), tabs: [Tab(child: Text("lbl_recent".tr)), Tab(child: Text("lbl_critical".tr)), Tab(child: Text("lbl_favourable".tr))])); } 
+
+/// Navigates to the previous screen.
+onTapArrowLeft() { Get.back(); } 
+ }
